@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private String cpf;
     private String senha;
     private Cliente c;
-
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 alert("nao bateu!");
             }
         } catch (Exception e) {
-            e.getMessage();
+            Log.e(TAG, e.getMessage());
         }
     }
 
@@ -127,7 +128,6 @@ public class LoginActivity extends AppCompatActivity {
         } else if (cliente == null) {
             ehValido = false;
         }
-
         return ehValido;
     }
 
@@ -168,7 +168,9 @@ public class LoginActivity extends AppCompatActivity {
                     Thread.sleep(3000);
                     c = LoginService.getDados(cpf, senha);
                 } catch (InterruptedException e) {
+                    Log.e(TAG, e.getMessage());
                 } catch (IOException e) {
+                    Log.e(TAG, e.getMessage());
                 }
             }
             return total;
@@ -180,32 +182,21 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.setProgress(progress[0]);
         }
 
-        //No onPostExecute, fechamos o ProgressDialog e enviamos uma breve mensagem via toast.
+        //No onPostExecute, fechamos o ProgressDialog e enviamos uma breve mensagem via toast e finalizamos a AsyncTask
         @Override
         protected void onPostExecute(Integer result) {
             super.onPostExecute(result);
-
             progressDialog.dismiss();
-            //alert("Fim da AsyncTask");
             if (isloginValid(c)) {
-
-                alert("" + c.getApolices().size());
-                //envia dados para a menu activity
-
-                // Dados a serem passados
+                // Dados a serem passados para a menu activity
                 Intent intent = new Intent(context, MenuActivity.class);
                 intent.putExtra("cliente", c);
                 intent.putExtra("apolices", c.getApolices());
-
                 startActivity(intent);
                 finish();
-                // ((Activity)context).finish();
             } else {
                 alert("CPF e/ou senha incorreta. Por favor, verifique a digitação");
             }
         }
     }
-
 }
-
-
