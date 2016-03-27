@@ -68,14 +68,14 @@
 
                     <!-- chassi -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblChassi"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtChassi"
@@ -88,14 +88,14 @@
 
                     <!-- cor -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblCor"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtCor"
@@ -108,14 +108,14 @@
 
                     <!-- fabricante -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblFabricante"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtFabricante"
@@ -128,14 +128,14 @@
 
                     <!-- rastreador -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblRastreador"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtRastreador"
@@ -148,14 +148,14 @@
 
                     <!-- ano -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblAno"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtAno"
@@ -168,14 +168,14 @@
 
                     <!-- placa -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblPlaca"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtPlaca"
@@ -188,14 +188,14 @@
 
                     <!-- renavam -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblRenavam"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtRenavam"
@@ -208,35 +208,35 @@
 
                     <!-- apolice num -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblNumApolice"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
-                        android:textStyle="bold"
                         android:id="@+id/txtNumApolice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingBottom="2dp"
                         android:paddingLeft="16dp"
                         android:textColor="@color/secondary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <!-- data validade apolice -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblDataValidade"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtDataValidade"
@@ -249,14 +249,14 @@
 
                     <!-- pernoite -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblPernoite"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtPernoite"
@@ -269,14 +269,14 @@
 
                     <!-- desc uso veiculo -->
                     <TextView
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:paddingTop="2dp"
                         android:text="@string/lblDescUsoVeiculo"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtDescUsoVeiculo"
@@ -286,6 +286,17 @@
                         android:paddingLeft="16dp"
                         android:textColor="@color/secondary_text"
                         android:textSize="14sp" />
+
+                    <!-- botao para abrir chamado -->
+                    <Button
+                        android:id="@+id/btChamado"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/accent_color"
+                        android:textColor="@color/text_icons" />
                 </LinearLayout>
 
             </ScrollView>

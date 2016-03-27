@@ -36,11 +36,6 @@ public class MenuActivity extends BaseActivity implements NavigationDrawerFragme
     private String nome;
     private String email;
 
-    public static ArrayList<Apolice> getApolices(Cliente c) {
-        ArrayList<Apolice> apolices = c.getApolices();
-        return apolices;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

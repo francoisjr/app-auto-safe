@@ -42,7 +42,7 @@ public class ApoliceFragment extends BaseFragment {
             setTextString(R.id.txtDataValidade, apolice.getDataValidade());
             setTextString(R.id.txtPernoite, apolice.getLocaldaPernoite());
             setTextString(R.id.txtDescUsoVeiculo, apolice.getDescricaoUsoVeiculo());
-
+            setTextString(R.id.btChamado, "Abrir chamado");
             final ImageView imgView = (ImageView) getView().findViewById(R.id.img);
             Picasso.with(getContext()).load(R.drawable.carro_generico).fit().into(imgView);
         }
