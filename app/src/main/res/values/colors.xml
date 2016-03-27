@@ -7,7 +7,11 @@
     <color name="text_icons">#FFFFFF</color>
     <color name="accent_color">#2196F3</color>
     <color name="primary_text">#212121</color>
-    <color name="secondary_text">#727272</color>
+    <color name="secondary_text">#999</color>
     <color name="divider_color">#B6B6B6</color>
     <color name="black">#000000</color>
+    <color name="gray">#eee</color>
+    <color name="transparent">#0000</color>
+    <color name="control_highlight">#B3E5FC</color>
+
 </resources>

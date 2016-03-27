@@ -62,8 +62,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:onClick="onClickLogin"
-        android:text="@string/esqueciSenha"
-        android:textColor="@color/text_icons"/>
+        android:text="@string/esqueci_senha"
+        android:textColor="@color/text_icons" />
 
     <!-- botao para logar -->
     <Button
@@ -75,8 +75,6 @@
         android:background="@color/accent_color"
         android:onClick="onClickLogin"
         android:text="@string/login"
-        android:textColor="@color/text_icons"
-        />
-
+        android:textColor="@color/text_icons" />
 
 </LinearLayout>

@@ -1,60 +1,52 @@
 package br.com.autosafe.autosafeapp.activity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import br.com.autosafe.autosafeapp.R;
+import br.com.autosafe.autosafeapp.domain.Cliente;
+import br.com.autosafe.autosafeapp.service.LoginService;
 
 public class LoginActivity extends AppCompatActivity {
 
-
+    ProgressDialog progressDialog;
     private TextView tCpf;
     private TextView tSenha;
+    private String cpf;
+    private String senha;
+    private Cliente c;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void onClickLogin(View view) {
         tCpf = (TextView) findViewById(R.id.tCpf);
         tSenha = (TextView) findViewById(R.id.tSenha);
-        String cpf = tCpf.getText().toString();
-        String senha = tSenha.getText().toString();
-        if ("ricardo".equals(cpf) && "123".equals(senha)) {
-            alert("Bem-vindo, login realizado com sucesso!");
-        } else {
-            validaCampos();
-            alert("Login/Senha incorretos!");
+        cpf = tCpf.getText().toString();
+        senha = tSenha.getText().toString();
+        try {
+            if (validaCampos()) {
+                taskDados();
+            } else {
+                alert("nao bateu!");
+            }
+        } catch (Exception e) {
+            e.getMessage();
         }
     }
 
@@ -62,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 
-    private void validaCampos() {
+    private boolean validaCampos() {
 
         // Reset errors.
         tCpf.setError(null);
@@ -72,39 +64,148 @@ public class LoginActivity extends AppCompatActivity {
         String cpf = tCpf.getText().toString();
         String password = tSenha.getText().toString();
 
-        boolean cancel = false;
+        boolean passou = false;
         View focusView = null;
 
         // Check for a valid cpf address.
         if (TextUtils.isEmpty(cpf)) {
-            tCpf.setError(getString(R.string.error_field_required));
+            tCpf.setError(getString(R.string.obrigatoriedade_cpf));
             focusView = tCpf;
-            cancel = true;
+            passou = false;
         } else if (!isCpfValid(cpf)) {
-            tCpf.setError(getString(R.string.error_invalid_email));
+            tCpf.setError(getString(R.string.erro_cpf_invalido));
             focusView = tCpf;
-            cancel = true;
+            passou = false;
+        } else if (!TextUtils.isEmpty(cpf) && isCpfValid(cpf)) {
+            passou = true;
         }
 
         // Check for a valid pass address.
         if (TextUtils.isEmpty(password)) {
-            tSenha.setError(getString(R.string.error_field_required));
+            tSenha.setError(getString(R.string.obrigatoriedade_senha));
             focusView = tSenha;
-            cancel = true;
+            passou = false;
         } else if (!isPasswordValid(password)) {
-            tCpf.setError(getString(R.string.error_invalid_email));
+            tSenha.setError(getString(R.string.senha_invalida));
             focusView = tSenha;
-            cancel = true;
+            passou = false;
+        } else if (!TextUtils.isEmpty(password) && isPasswordValid(password)) {
+            passou = true;
         }
+
+        return passou;
     }
 
-    private boolean isCpfValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
+    private boolean isCpfValid(String cpf) {
+        return cpf.length() == 11;
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() >= 6;
     }
+
+
+    private void taskDados() throws Exception {
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setTitle("Por favor, aguarde...");
+        progressDialog.setMessage("Verificando informaçoes na base de dados...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        //busca os carros: dispara a task
+        new GetDadosTask(this).execute();
+    }
+
+    private boolean isloginValid(Cliente cliente) {
+        boolean ehValido = true;
+
+        if (cliente != null) {
+            if (cliente.getId().equals("") || cliente.getId() == null) {
+                ehValido = false;
+            }
+        } else if (cliente == null) {
+            ehValido = false;
+        }
+
+        return ehValido;
+    }
+
+    private class GetDadosTask extends AsyncTask<Void, Integer, Integer> {
+        final static int STATE_DONE = 0;
+        final static int STATE_RUNNING = 1;
+        int mState;
+        int total;
+        private Context context;
+
+        public GetDadosTask(Context context) {
+            this.context = context;
+        }
+
+        //No onPreExecute, atualizamos o ProgressDialog
+        @Override
+        protected void onPreExecute() {
+            progressDialog.setProgress(0);
+        }
+
+        /*
+        * No doInBackground, é onde fazemos todo o serviço. E como estamos em outra Thread,
+        * nos comunicamos com o ProgressDialog via o método publishProgress(total) enviando
+        * o contador para o método onProgressUpdate.
+        * */
+        @Override
+        protected Integer doInBackground(Void... params) {
+            mState = STATE_RUNNING;
+            total = 0;
+            while (mState == STATE_RUNNING) {
+                total++;
+                publishProgress(total);
+
+                if (total >= 3) {
+                    mState = STATE_DONE;
+                }
+                try {
+                    Thread.sleep(3000);
+                    c = LoginService.getDados(cpf, senha);
+                } catch (InterruptedException e) {
+                } catch (IOException e) {
+                }
+            }
+            return total;
+        }
+
+        //No onProgressUpdate, atualizamos o ProgressDialog.
+        @Override
+        protected void onProgressUpdate(Integer... progress) {
+            progressDialog.setProgress(progress[0]);
+        }
+
+        //No onPostExecute, fechamos o ProgressDialog e enviamos uma breve mensagem via toast.
+        @Override
+        protected void onPostExecute(Integer result) {
+            super.onPostExecute(result);
+
+            progressDialog.dismiss();
+            //alert("Fim da AsyncTask");
+            if (isloginValid(c)) {
+
+                alert("" + c.getApolices().size());
+                //envia dados para a menu activity
+
+                // Dados a serem passados
+                Intent intent = new Intent(context, MenuActivity.class);
+                intent.putExtra("cliente", c);
+                intent.putExtra("apolices", c.getApolices());
+
+                startActivity(intent);
+                finish();
+                // ((Activity)context).finish();
+            } else {
+                alert("CPF e/ou senha incorreta. Por favor, verifique a digitação");
+            }
+        }
+    }
+
 }
+
+

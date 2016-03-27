@@ -7,12 +7,22 @@
         <!-- variacao escura da cor primaria para a status bar e contextual app bars -->
         <item name="colorPrimaryDark">@color/dark_primary_color</item>
         <!-- cor de acentuacao para as views (checkbox, textfiled etc) -->
-        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorAccent">@color/text_icons</item>
         <!-- cor para o efeito ripple -->
-        <item name="colorControlHighlight">@color/divider_color</item>
+        <item name="colorControlHighlight">@color/control_highlight</item>
 
         <item name="android:textColorHint">@color/secondary_text</item>
 
     </style>
+
+    <!-- Tema para o Nav Drawer -->
+    <style name="AppTheme.NavDeawer" parent="AppTheme">
+        <!-- Habilita o overlay mode na action bar -->
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
