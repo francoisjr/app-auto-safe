@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cores do tema material -->
+    <color name="dark_primary_color">#0D47A1</color>
+    <color name="primary_color">#1565C0</color>
+    <color name="light_primary_color">#C5CAE9</color>
+    <color name="text_icons">#FFFFFF</color>
+    <color name="accent_color">#2196F3</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#999</color>
+    <color name="divider_color">#B6B6B6</color>
+    <color name="black">#000000</color>
+    <color name="gray">#eee</color>
+    <color name="transparent">#0000</color>
+    <color name="control_highlight">#B3E5FC</color>
+
+</resources>

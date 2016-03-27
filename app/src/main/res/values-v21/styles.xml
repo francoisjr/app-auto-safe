@@ -1,0 +1,25 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- cor primaria do aplicativo -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <!-- variacao escura da cor primaria para a status bar e contextual app bars -->
+        <item name="colorPrimaryDark">@color/dark_primary_color</item>
+        <!-- cor de acentuacao para as views (checkbox, textfiled etc) -->
+        <item name="colorAccent">@color/text_icons</item>
+        <!-- cor para o efeito ripple -->
+        <item name="colorControlHighlight">@color/control_highlight</item>
+
+        <item name="android:textColorHint">@color/secondary_text</item>
+    </style>
+
+    <style name="AppTheme.NavDrawer" parent="AppTheme">
+        <!-- habilita o overlay mode na action bar  -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/dark_primary_color</item>
+
+
+    </style>
+
+</resources>
