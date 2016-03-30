@@ -6,7 +6,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import br.com.autosafe.autosafeapp.domain.Apolice;
 import br.com.autosafe.autosafeapp.domain.Cliente;
@@ -40,8 +39,7 @@ public class LoginService {
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
         Cliente cliente = null;
-        Veiculo veiculo = null;
-        Apolice apolice = null;
+
         Login login = null;
 
         try {
@@ -52,6 +50,9 @@ public class LoginService {
             JSONArray jsonDependentes = root.getJSONArray("dependentemodel");
             JSONArray jsonClientes = root.getJSONArray("clientemodel");
             //JSONArray jsonClientesDependentes = root.getJSONArray("clientedep");
+            if (jsonClientes.length() == 0) {
+                jsonClientes = jsonDependentes;
+            }
 
             // percorre o array de cliente
             for (int i = 0; i < jsonClientes.length(); i++) {
@@ -88,7 +89,9 @@ public class LoginService {
             // percorre o array de veiculos(pode ser varios, cada um de uma apolice)
             for (int i = 0; i < jsonVeiculos.length(); i++) {
                 JSONObject jsonVeiculo = jsonVeiculos.getJSONObject(i);
-                veiculo = new Veiculo();
+                Veiculo veiculo = new Veiculo();
+                JSONObject jsonApolice = jsonApolices.getJSONObject(i);
+                Apolice apolice = new Apolice();
 
                 // Lê as informações de cada veiculo
                 veiculo.setId(jsonVeiculo.optString("VeiculoId"));
@@ -102,12 +105,8 @@ public class LoginService {
                 veiculo.setRenavam(jsonVeiculo.optString("Renavan"));
                 //add o veiculo a lista de veiculos
                 veiculos.add(veiculo);
-            }
 
-            // percorre o array de apolices
-            for (int i = 0; i < jsonApolices.length(); i++) {
-                JSONObject jsonApolice = jsonApolices.getJSONObject(i);
-                apolice = new Apolice();
+                // percorre o array de apolices
 
                 // Lê as informações de cada apolice
                 apolice.setId(jsonApolice.optString("ApoliceId"));
