@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Auto Safe App</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- literais do layout activity_login -->
+    <string name="cpf">CPF</string>
+    <string name="senha">Senha</string>
+    <string name="login">Entrar</string>
+    <string name="esqueci_senha">Esqueceu a senha?</string>
+    <string name="obrigatoriedade_cpf">Por favor informar o CPF</string>
+    <string name="senha_invalida">A senha deverá conter 8 caractéres alfanuméricos</string>
+    <string name="erro_usuario_nao_cadastrado">CPF ou senha incorreta. Por favor, verifique a digitação</string>
+    <string name="erro_cpf_invalido">CPF inválido. Por favor, verifique a digitação</string>
+    <string name="obrigatoriedade_senha">Por favor, informar a Senha</string>
+
+    <!-- literais do layout activity_menu -->
+    <string name="title_activity_menu">Auto Safe</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- literais itens de menu -->
+    <string name="home">Home</string>
+    <string name="consulta_chamados">Consultar chamados</string>
+    <string name="oficinas">Oficinas credenciadas</string>
+    <string name="meus_dados">Meus Dados</string>
+    <string name="config">Configurações</string>
+    <string name="ajuda">Central de ajuda</string>
+    <string name="sobre">Sobre</string>
+    <string name="termos">Termos e condições</string>
+    <string name="action_about">Sobre</string>
+
+
+    <!-- literais home -->
+    <string name="fragment_home">Fragment Home aqui</string>
+    <string name="fragment_chamados">Fragment Chamados aqui</string>
+
+
+    <!-- literais fragment/activity apolice, detalhes da apolice -->
+    <string name="lblModelo">Modelo: </string>
+    <string name="lblChassi">Chassi: </string>
+    <string name="lblCor">Cor: </string>
+    <string name="lblFabricante">Fabricante: </string>
+    <string name="lblRastreador">Possui Rastreador: </string>
+    <string name="lblAno">Ano: </string>
+    <string name="lblPlaca">Placa: </string>
+    <string name="lblRenavam">Renavam: </string>
+    <string name="lblNumApolice">Numero da apolice: </string>
+    <string name="lblDataValidade">Data de vigência da apolice: </string>
+    <string name="lblPernoite">Local de pernoite: </string>
+    <string name="lblDescUsoVeiculo">Descrição de uso do veiculo: </string>
+
+    <!-- Sobre alert box -->
+    <string name="about_dialog_text">
+        <![CDATA[
+            <b>Aplicativo Auto Safe</b><br>
+             Versao %s<br><br>
+                Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos,
+                e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja
+                de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não
+                só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente
+                inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de
+                Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como
+                Aldus PageMaker.
+         ]]>
+	</string>
+    <string name="title_activity_apolice">ApoliceActivity</string>
+</resources>
