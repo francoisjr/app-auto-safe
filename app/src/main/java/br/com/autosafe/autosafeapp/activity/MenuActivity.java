@@ -49,7 +49,7 @@ public class MenuActivity extends BaseActivity implements NavigationDrawerFragme
         //cor de fundo da barra de status
         drawerLayout.setStatusBarBackground(R.color.dark_primary_color);
         cliente = (Cliente) getIntent().getSerializableExtra("cliente");
-        apolices = (ArrayList<Apolice>) getIntent().getSerializableExtra("apolices");
+        this.apolices = (ArrayList<Apolice>) getIntent().getSerializableExtra("apolices");
         //preenche o cabecalho com o logo, nome e email.
         RelativeLayout navigationView = (RelativeLayout) findViewById(R.id.containerNavDrawerListViewHeader);
 

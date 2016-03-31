@@ -62,11 +62,11 @@ public class ApolicesFragment extends BaseFragment {
             @Override
             public void onClickApolice(View view, int idx) {
                 Apolice a = apolices.get(idx);
-                // Veiculo v = a.getVeiculo();
+                Toast.makeText(getContext(), "Apolice: " + a.getId(), Toast.LENGTH_SHORT).show();
+
 
                 Intent intent = new Intent(getContext(), ApoliceActivity.class);
                 intent.putExtra("apolice", a);
-                intent.putExtra("veiculo", a.getVeiculo());
                 startActivity(intent);
                 Toast.makeText(getContext(), "Apolice: " + a.getId(), Toast.LENGTH_SHORT).show();
             }
