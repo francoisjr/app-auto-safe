@@ -19,8 +19,6 @@ import br.com.autosafe.autosafeapp.domain.Cliente;
 import br.com.autosafe.autosafeapp.service.LoginService;
 
 public class LoginActivity extends AppCompatActivity {
-
-    //teste
     
     ProgressDialog progressDialog;
     private TextView tCpf;
