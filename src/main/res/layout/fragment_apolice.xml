@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="@dimen/foto_carro_width"
+                android:layout_height="@dimen/foto_carro_height"
+                android:layout_gravity="center"
+                android:scaleType="center" />
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- modelo -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblModelo"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtModelo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- chassi -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblChassi"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtChassi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- cor -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblCor"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtCor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- fabricante -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblFabricante"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtFabricante"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- rastreador -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblRastreador"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtRastreador"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- ano -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblAno"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtAno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- placa -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblPlaca"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtPlaca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- renavam -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblRenavam"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtRenavam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- apolice num -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblNumApolice"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtNumApolice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <!-- data validade apolice -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblDataValidade"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtDataValidade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- pernoite -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblPernoite"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtPernoite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- desc uso veiculo -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="2dp"
+                        android:text="@string/lblDescUsoVeiculo"
+                        android:textColor="@color/primary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtDescUsoVeiculo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="16dp"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
+
+                    <!-- botao para abrir chamado  -->
+                    <Button
+                        android:id="@+id/btChamado"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/accent_color"
+                        android:textColor="@color/text_icons" />
+                </LinearLayout>
+
+            </ScrollView>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
