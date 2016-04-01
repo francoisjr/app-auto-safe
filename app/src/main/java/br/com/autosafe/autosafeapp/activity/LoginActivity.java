@@ -20,7 +20,7 @@ import br.com.autosafe.autosafeapp.service.LoginService;
 
 public class LoginActivity extends AppCompatActivity {
 
-    
+
     ProgressDialog progressDialog;
     private TextView tCpf;
     private TextView tSenha;
